@@ -11,3 +11,7 @@ This script checks a list of Discord invite links for validity. It uses regular 
 5. Enter the name of the input file when prompted.
 6. Check the console for the results.
 7. Check the `Data` folder for the saved links.
+
+## License
+This project is licensed under the MIT License. See the LICENSE file for details.
+
