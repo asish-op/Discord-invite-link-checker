@@ -1,5 +1,6 @@
 import os
 import re
+import time
 import requests
 from colorama import Fore, Style
 
@@ -50,6 +51,10 @@ for invite_link in invite_links:
     if response.status_code == 200:
         valid_file.write(f"{invite_link}\n")
         print(Fore.GREEN + f"Valid invite link: {invite_link}" + Style.RESET_ALL)
+    #introducing this check will remove false negatives from accuring
+    elif response.status_code == 429:
+        print("Rate limited retrying after one minute...")
+        time.wait(70)
     else:
         invalid_file.write(f"{invite_link}\n")
         print(Fore.RED + f"Invalid invite link: {invite_link}" + Style.RESET_ALL)
